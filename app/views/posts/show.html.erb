@@ -1,6 +1,11 @@
 <div class="col-sm-11 col-xs-12 blog-content">
-  <h2 class="text-center"><%= @post.title %></h2>
-  <h3 class="text-center"><%= @post.subtitle %></h3>
-  <h5 class="text-center"><%= @post.created_at.strftime('%b %d, %Y') %></h5>
+  <% if @post.photo.attached? %>
+    <div>
+    <%= cl_image_tag @post.photo.key, height: 300, width: 400, crop: :fill %>
+    </div>
+  <% end %>
+  <small><%= @post.created_at.strftime('%b %d, %Y') %></small>
+  <h1 class="post-title"><%= @post.title %></h1>
+  <h2 class="post-subtitle"><%= @post.subtitle %></h2>
   <div><%= raw @post.text %></div>
 </div>
