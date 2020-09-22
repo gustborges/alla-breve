@@ -1,31 +1,3 @@
-// For index and show pages
-small {
-  text-transform: uppercase;
-  color: $gray;
-}
-
-h1, h2 {
-  color: $dark-gray;
-}
-
-// For home page (index)
-
-.home-post-title {
-  margin: 5px 0 22px 0;
-  font-size: 3em;
-}
-
-.home-post-subtitle {
-  margin: 22px 0;
-  font-size: 1.2em;
-  font-weight: 300;
-}
-
-.no-decoration a {
-  text-decoration: none;
-}
-
-
 // For post page (show)
 
 .post-title {

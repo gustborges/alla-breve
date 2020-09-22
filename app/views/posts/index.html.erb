@@ -1,12 +1,12 @@
-<div class="container">
-  <div class="col-xs-12 blog-content">
+
+  <div class="col-sm-12">
     <% @posts.each do |post| %>
       <div class="post">
 
         <!-- If photo is attached, show it -->
         <% if post.photo.attached? %>
           <div>
-          <%= cl_image_tag post.photo.key, height: 300, width: 400, crop: :fill %>
+          <%= cl_image_tag post.photo.key, class: "home-post-image", height: 300, width: 700, crop: :fill %>
           </div>
         <% end %>
 
@@ -32,4 +32,4 @@
       </div>
     <% end %>
   </div>
-</div>
+

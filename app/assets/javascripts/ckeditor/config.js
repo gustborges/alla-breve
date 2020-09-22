@@ -1,6 +1,6 @@
 CKEDITOR.editorConfig = function(config) {
-  config.language = 'en';
-  config.width = '700';
+  config.language = 'pt-br';
+  config.width = '100%';
   config.filebrowserBrowseUrl = "/ckeditor/attachment_files";
   config.filebrowserImageBrowseLinkUrl = "/ckeditor/pictures";
   config.filebrowserImageBrowseUrl = "/ckeditor/pictures";
@@ -10,10 +10,10 @@ CKEDITOR.editorConfig = function(config) {
   config.toolbar_Pure = [
     '/', {
       name: 'basicstyles',
-      items: ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat']
+      items: ['Bold', 'Italic', 'Underline', 'Strike', '-', 'RemoveFormat']
     }, {
       name: 'paragraph',
-      items: ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl']
+      items: ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl']
     }, {
       name: 'links',
       items: ['Link', 'Unlink']
@@ -25,7 +25,7 @@ CKEDITOR.editorConfig = function(config) {
       items: ['TextColor', 'BGColor']
     }, {
       name: 'insert',
-      items: ['Image', 'Table', 'HorizontalRule', 'PageBreak']
+      items: ['Image', 'Table' ]
     }
   ];
   config.toolbar = 'Pure';

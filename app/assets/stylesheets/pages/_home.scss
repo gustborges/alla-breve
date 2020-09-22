@@ -1,1 +1,33 @@
 // Specific CSS for your home-page
+
+// For index and show pages
+small {
+  text-transform: uppercase;
+  color: $gray;
+}
+
+h1, h2 {
+  color: $dark-gray;
+}
+
+
+// For home page (index)
+
+.home-post-title {
+  margin: 5px 0 12px 0;
+  font-size: 1.7em;
+}
+
+.home-post-subtitle {
+  margin-bottom: 22px;
+  font-size: 1em;
+  font-weight: 300;
+}
+
+.home-post-image {
+  margin-top: 30px;
+}
+
+.no-decoration a {
+  text-decoration: none;
+}
