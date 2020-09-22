@@ -1,40 +1,44 @@
 
-<div class="form-container">
-  <%= simple_form_for @post do |f| %>
-    <% if @post.errors.any? %>
-      <div id="error_explanation">
-        <h2>
-          <%= "#{pluralize(@post.errors.count, "error")} prohibited this post from being saved:" %>
-        </h2>
-        <ul>
-          <% @post.errors.full_messages.each do |msg| %>
-            <li>
-              <%= msg %>
-            </li>
-            <% end %>
-        </ul>
+
+<% if current_user.admin == true %>
+
+  <div class="form-container">
+    <%= simple_form_for @post do |f| %>
+      <% if @post.errors.any? %>
+        <div id="error_explanation">
+          <h2>
+            <%= "#{pluralize(@post.errors.count, "error")} prohibited this post from being saved:" %>
+          </h2>
+          <ul>
+            <% @post.errors.full_messages.each do |msg| %>
+              <li>
+                <%= msg %>
+              </li>
+              <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="form-group">
+        <%= f.input :title, label: "Título", class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.input :subtitle, label: "Subtítulo", class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.input :photo, label: "Foto de capa", as: :file, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.input :text, label: "Texto interno do post", :as => :ckeditor, input_html: {:ckeditor => {:toolbar => 'FULL'}}, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.button :submit, "Enviar", class: "btn-primary" %>
       </div>
     <% end %>
+  </div>
 
-    <div class="form-group">
-      <%= f.input :title, label: "Título", class: "form-control" %>
-    </div>
-
-    <div class="form-group">
-      <%= f.input :subtitle, label: "Subtítulo", class: "form-control" %>
-    </div>
-
-    <div class="form-group">
-      <%= f.input :photo, label: "Foto de capa", as: :file, class: "form-control" %>
-    </div>
-
-    <div class="form-group">
-      <%= f.input :text, label: "Texto interno do post", :as => :ckeditor, input_html: {:ckeditor => {:toolbar => 'FULL'}}, class: "form-control" %>
-    </div>
-
-    <div class="form-group">
-      <%= f.button :submit, "Enviar", class: "btn-primary" %>
-    </div>
-  <% end %>
-</div>
-
+<% end %>
