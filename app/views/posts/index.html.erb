@@ -1,38 +1,37 @@
+<% @posts.reverse_each do |post| %>
+  <div class="row justify-content-center">
 
-    <% @posts.each do |post| %>
-      <div class="row justify-content-center">
-
-        <!-- If photo is attached, show it -->
-        <div class="col-sm-12">
-          <% if post.photo.attached? %>
-            <div>
-            <%= cl_image_tag post.photo.key, class: "home-post-image", aspect_ratio: "16:9", crop: :thumb %>
-            </div>
-          <% end %>
-
-          <!-- Date and delete/edit buttons (if logged in) -->
-          <div class="d-flex align-items-center">
-            <small><%= post.created_at.strftime('%b %d, %Y') %></small>
-            <% if user_signed_in? %>
-              <%= link_to "<i class='far fa-edit'></i>".html_safe, edit_post_path(post), class: "btn btn-default list-inline" %>
-              <%= link_to "<i class='far fa-trash-alt'></i>".html_safe, post_path(post), class: "btn btn-default list-inline", data: {:confirm => "Are you sure?"}, method: :delete %>
-            <% end %>
-          </div>
+    <!-- If photo is attached, show it -->
+    <div class="col-sm-12">
+      <% if post.photo.attached? %>
+        <div>
+        <%= cl_image_tag post.photo.key, title: post.title, class: "home-post-image", aspect_ratio: "16:9", crop: :thumb %>
         </div>
+      <% end %>
 
-        <div class="col-sm-12">
-        <!-- Link everything to post#show -->
-          <div class="no-decoration">
-            <%= link_to post_path(post) do  %>
-
-            <!-- Title and subtitle -->
-            <h1 class="home-post-title"><%= post.title %></h2>
-            <h2 class="home-post-subtitle"><%= post.subtitle %></h3>
-
-          <% end %>
-          </div>
-        </div>
+      <!-- Date and delete/edit buttons (if logged in) -->
+      <div class="d-flex align-items-center">
+        <small><%= post.created_at.strftime('%b %d, %Y') %></small>
+        <% if user_signed_in? %>
+          <%= link_to "<i class='far fa-edit'></i>".html_safe, edit_post_path(post), class: "btn btn-default list-inline" %>
+          <%= link_to "<i class='far fa-trash-alt'></i>".html_safe, post_path(post), class: "btn btn-default list-inline", data: {:confirm => "Vai deletar mesmo?"}, method: :delete %>
+        <% end %>
       </div>
-    <% end %>
+    </div>
+
+    <div class="col-sm-12">
+    <!-- Link everything to post#show -->
+      <div class="no-decoration">
+        <%= link_to post_path(post) do  %>
+
+        <!-- Title and subtitle -->
+        <h1 class="home-post-title"><%= post.title %></h2>
+        <h2 class="home-post-subtitle"><%= post.subtitle %></h3>
+
+      <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
 
 
