@@ -32,11 +32,11 @@
       </div>
 
       <div class="form-group">
-        <%= f.input :text, label: "Texto interno do post", :as => :ckeditor, input_html: {:ckeditor => {:toolbar => 'FULL'}}, class: "form-control" %>
+        <%= f.rich_text_area :rich_body, label: "Texto interno do post" %>
       </div>
 
       <div class="form-group">
-        <%= f.button :submit, "Enviar", class: "btn-primary" %>
+        <%= f.button :submit, "Enviar", class: "btn btn-primary" %>
       </div>
     <% end %>
   </div>
