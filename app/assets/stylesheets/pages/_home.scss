@@ -13,6 +13,14 @@ h1, h2 {
 
 // For home page (index)
 
+.bigbox {
+  padding: 0 3vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .home-post-title {
   margin: 5px 0 12px 0;
   font-size: 1.7em;
@@ -27,6 +35,7 @@ h1, h2 {
 .home-post-image {
   margin-top: 30px;
   border-radius: 4px;
+  width: 100%;
 }
 
 .no-decoration a {
