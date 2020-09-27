@@ -3,7 +3,7 @@
 <% if current_user.admin == true %>
 
   <div class="form-container">
-    <%= simple_form_for @post do |f| %>
+    <%= simple_form_for @post do |f, c| %>
       <% if @post.errors.any? %>
         <div id="error_explanation">
           <h2>
@@ -25,6 +25,10 @@
 
       <div class="form-group">
         <%= f.input :subtitle, label: "Subtítulo", class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.association :category, as: :select, label_method: :tag %>
       </div>
 
       <div class="form-group">

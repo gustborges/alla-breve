@@ -13,6 +13,7 @@ class PostsController < ApplicationController
   end
 
   def create
+    @categories = Category.all
     @post = Post.new(post_params)
     @post.user = current_user
     if @post.save
@@ -27,6 +28,7 @@ class PostsController < ApplicationController
   def edit; end
 
   def update
+    @categories = Category.all
     @post = Post.find(params[:id])
     if @post.update(post_params)
       redirect_to post_path(@post)
@@ -47,7 +49,7 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :subtitle, :text, :user, :photo, :rich_body)
+    params.require(:post).permit(:title, :subtitle, :text, :user, :photo, :rich_body, :category)
   end
 
 end
