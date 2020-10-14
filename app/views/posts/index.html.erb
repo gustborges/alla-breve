@@ -1,4 +1,6 @@
-<% @posts.reverse_each do |post| %>
+<!-- Highlighted posts -->
+
+<% @posts.where(highlight: true).reverse_each do |post| %>
   <div class="row justify-content-center">
 
     <!-- If photo is attached, show it -->
@@ -36,4 +38,35 @@
   </div>
 <% end %>
 
+
+<!-- Normal posts -->
+
+<div class="row justify-content-center">
+  <% @posts.where(highlight: false).reverse_each do |post| %>
+    <!-- If photo is attached, show it -->
+    <%= link_to post_path(post) do  %>
+      <div class="col-sm-12 col-md-6 col-lg-4 no-decoration">
+        <% if post.photo.attached? %>
+          <div>
+          <%= cl_image_tag post.photo.key, title: post.title, class: "home-post-image", aspect_ratio: "16:9", crop: :thumb %>
+          </div>
+        <% end %>
+
+        <!-- Date and delete/edit buttons (if logged in) -->
+        <div class="d-flex align-items-center">
+          <small><%= post.created_at.strftime('%b %d, %Y') %></small>
+          <% if user_signed_in? %>
+            <%= link_to "<i class='far fa-edit'></i>".html_safe, edit_post_path(post), class: "btn btn-default list-inline" %>
+            <%= link_to "<i class='far fa-trash-alt'></i>".html_safe, post_path(post), class: "btn btn-default list-inline", data: {:confirm => "Vai deletar mesmo?"}, method: :delete %>
+          <% end %>
+        </div>
+
+        <!-- Title and subtitle -->
+        <h1 class="home-post-title"><%= post.title %></h1>
+        <h2 class="home-post-subtitle"><%= post.subtitle %></h2>
+      </div>
+    <% end %>
+
+  <% end %>
+</div>
 
