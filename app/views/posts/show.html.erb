@@ -6,9 +6,11 @@
   <% end %>
   <div class="d-flex align-items-center">
     <small><%= @post.created_at.strftime('%b %d, %Y') %></small>
-    <% if current_user.admin == true %>
-      <%= link_to "<i class='far fa-edit'></i>".html_safe, edit_post_path(@post), class: "btn btn-default list-inline" %>
-      <%= link_to "<i class='far fa-trash-alt'></i>".html_safe, post_path(@post), class: "btn btn-default list-inline", data: {:confirm => "Olha lá! Vai deletar mesmo?"}, method: :delete %>
+    <% if !current_user.nil? %>
+      <% if current_user.admin? %>
+        <%= link_to "<i class='far fa-edit'></i>".html_safe, edit_post_path(@post), class: "btn btn-default list-inline" %>
+        <%= link_to "<i class='far fa-trash-alt'></i>".html_safe, post_path(@post), class: "btn btn-default list-inline", data: {:confirm => "Olha lá! Vai deletar mesmo?"}, method: :delete %>
+      <% end %>
     <% end %>
   </div>
   <h1 class="post-title"><%= @post.title %></h1>
