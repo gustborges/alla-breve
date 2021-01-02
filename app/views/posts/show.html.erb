@@ -1,6 +1,6 @@
 <% content_for :meta_title, "Alla Breve | #{@post.title}" %>
 <% content_for :meta_description, @post.subtitle %>
-<% content_for :meta_image, cl_image_path(@post.photo.path) %>
+<% content_for :meta_image, cl_image_path(@post.photo.key) %>
 
 <div class="col-sm-11 col-xs-12 blog-content">
   <% if @post.photo.attached? %>
