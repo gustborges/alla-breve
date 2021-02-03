@@ -13,7 +13,7 @@
         <% end %>
 
         <!-- Date and delete/edit buttons (if logged in) -->
-          <div class="col-12 d-flex align-items-center">
+          <div class="d-flex align-items-center">
             <small><%= post.created_at.strftime('%b %d, %Y') %></small>
             <% if user_signed_in? %>
               <%= link_to "<i class='far fa-edit'></i>".html_safe, edit_post_path(post), class: "btn btn-default list-inline" %>

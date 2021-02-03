@@ -20,11 +20,13 @@
       <% end %>
 
       <div class="form-group">
-        <%= f.input :title, label: "Título", class: "form-control" %>
+        <%= f.text_area :title, label: "Título", class: "form-control", id: "count-me", maxlength: "70" %>
+        <span id="counter">0</span>/70 caracteres
       </div>
 
       <div class="form-group">
-        <%= f.input :subtitle, label: "Subtítulo", class: "form-control" %>
+        <%= f.text_area :subtitle, label: "Subtítulo", class: "form-control", id: "count-me", maxlength: "225" %>
+        <span id="counter">0</span>/225 caracteres
       </div>
 
       <div class="form-group">
@@ -50,3 +52,8 @@
   </div>
 
 <% end %>
+
+
+
+
+
